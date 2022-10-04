@@ -1,0 +1,45 @@
+main
+{
+    width: 1400px;
+}
+
+#static-inputs
+{
+    margin-top: 30px;
+}
+
+.input-container
+{
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin: 20px 0 0 0;
+}
+
+.input-container input
+{
+    border: 2px solid black;
+}
+
+#type-switcher-container
+{
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin-top: 30px;
+    align-items: center;
+}
+
+#type-swither
+{
+    padding: 5px;
+    border: 2px solid black;
+}
+
+#dynamic-inputs
+{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+

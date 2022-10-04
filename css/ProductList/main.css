@@ -1,0 +1,33 @@
+main
+{
+    display: grid;
+    width: 1400px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;   
+}
+
+#products
+{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.product
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    margin: 25px;
+    position: relative;
+}
+
+.delete-checkbox
+{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
