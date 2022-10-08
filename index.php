@@ -1,7 +1,7 @@
 <?php
 include './includes/classes/products.class.php';
 $products = new Products();
-$query = $products -> fetch_all_products();
+$productList = $products->fetch_all_products();
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +31,7 @@ $query = $products -> fetch_all_products();
 
     <script>
         var productsToDelete = []
-        var products = <?php echo json_encode($query); ?>;
+        var products = <?php echo json_encode($productList); ?>;
         var productsGrid = document.getElementById('products')
         products.map(product => {
             var productCard = document.createElement('div')
@@ -53,8 +53,26 @@ $query = $products -> fetch_all_products();
             <span>${product["ID"]}</span>
             <span>${product["Name"]}</span>
             <span>${product["Type"]}</span>
-            <span>${product["Size"]}</span>
             `
+            switch(product["Type"]){
+                case "DVD":
+                    productCard.innerHTML = productCard.innerHTML + `
+                        <span>Size: ${product["Size"]} MB</span>
+                    `
+                    break
+                case "Furniture":
+                    productCard.innerHTML = productCard.innerHTML + `
+                        <span>Width: ${product["Width"]} CM</span>
+                        <span>Height: ${product["Height"]} CM</span>
+                        <span>Length: ${product["Length"]} CM</span>
+                    `
+                    break
+                case "Book":
+                    productCard.innerHTML = productCard.innerHTML + `
+                        <span>Weight: ${product["Weight"]} KG</span>
+                    `
+                    break
+            }
             productCard.appendChild(deleteCheckbox)
             productsGrid.appendChild(productCard)
         })
